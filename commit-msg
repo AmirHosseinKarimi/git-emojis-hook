@@ -3,25 +3,25 @@
 msg=`cat $1`
 
 if [[ $msg = feat* ]]; then
-  msg="🌟${msg}"
+  msg="🌟 ${msg}"
 elif [[ $msg = fix* ]]; then
-  msg="🛠${msg}"
+  msg="🛠 ${msg}"
 elif [[ $msg = build* ]]; then
-  msg="📦${msg}"
+  msg="📦 ${msg}"
 elif [[ $msg = perf* ]]; then
-  msg="⚡${msg}"
+  msg="⚡ ${msg}"
 elif [[ $msg = refactor* ]]; then
-  msg="🚧${msg}"
+  msg="🚧 ${msg}"
 elif [[ $msg = style* ]]; then
-  msg="💄${msg}"
+  msg="💄 ${msg}"
 elif [[ $msg = docs* ]]; then
-  msg="📖${msg}"
+  msg="📖 ${msg}"
 elif [[ $msg = test* ]]; then
-  msg="✅${msg}"
+  msg="✅ ${msg}"
 elif [[ $msg = ci* ]]; then
-  msg="🤖${msg}"
+  msg="🤖 ${msg}"
 elif [[ $msg = revert* ]]; then
-  msg="⏳${msg}"
+  msg="⏳ ${msg}"
 fi
 
 echo "$msg" > $1
