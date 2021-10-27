@@ -2,32 +2,28 @@
 
 A simple git hook to provide strong guidelines for commit message with emojis.
 
-The commit message rules are the ones from Angular. I just augmented them by substituting their textual types with emojis. So it should look like this:
+The commit message rules are the ones from Angular. I just augmented them by adding related emojis. So they should look like this:
 
 ```
-🚑 (authentication): remove buggy function that allowed to login w/o passwd
+🛠fix(authentication): remove buggy function that allowed to login w/o password
 ```
-
-You'll notice another slight change from Angular's rules: I added a space between type and (scope). It is indeed visually more pleasant after the emojis.
 
 __Emojis are actual unicode emojis and not markdown emojis like `:fire:`. So it will work virtually everywhere as long as unicode is supported.__
 
-There are two hooks, one that makes the actual substitution and another one that prints the git commit message helper in the editor.
+There are two hooks, one that makes the actual commit message modification and another one that prints the git commit message helper in the editor.
 
 ## Syntax
 Here are the types, their respective codes and the corresponding emojis:
-* __revert__: `:revert:` • ⏳
-* __build__: `:build:` • 📦
-* __ci__: `:ci:` • 🤖
-* __docs__: `:docs:` • 📖
-* __feat__: `:feat:` • 🌟
-* __fix__: `:fix:` • 🚑
-* __perf__: `:perf:` • ⚡
-* __refactor__: `:refactor:` • 🚧
-* __style__: `:style:` • 💄
-* __test__: `:test:` • ✅
-
-In addition to these, I added `:tada:` 🎉 that's often used for the first commit!
+* __feat__: &nbsp; 🌟
+* __fix__: &nbsp; 🛠
+* __build__: &nbsp; 📦
+* __perf__: &nbsp; ⚡
+* __refactor__: &nbsp; 🚧
+* __style__: &nbsp; 💄
+* __docs__: &nbsp; 📖
+* __test__: &nbsp; ✅
+* __ci__: &nbsp; 🤖
+* __revert__: &nbsp; ⏳
 
 
 ## How to use
@@ -36,7 +32,7 @@ For each project, add the two files in in the `.git/hooks` directory.
 At the root of your git project, this one-liner can set up it all:
 
 ```
-cd .git/hooks/ && curl -O https://raw.githubusercontent.com/Buzut/git-emojis-hook/master/commit-msg && curl -O https://raw.githubusercontent.com/Buzut/git-emojis-hook/master/prepare-commit-msg && chmod +x * || exit 0
+cd .git/hooks/ && curl -O https://raw.githubusercontent.com/AmirHosseinKarimi/git-emojis-hook/master/commit-msg && curl -O https://raw.githubusercontent.com/AmirHosseinKarimi/git-emojis-hook/master/prepare-commit-msg && chmod +x * || exit 0
 ```
 
 Also, it might be handy to place the two files in a directory within your home and add a bash alias to automate the deploy.
@@ -44,12 +40,12 @@ Also, it might be handy to place the two files in a directory within your home a
 For exemple, in your home diretory, you could organize things like this:
 ```
 .gitemojis/
-    commit-msg
-    prepare-commit-msg
+|-- commit-msg
+|-- prepare-commit-msg
 ```
 
 And in your `.bash_profile` or `.bashrc`
-```
+```bash
 alias emogitify='cp ~/.gitemojis/* .git/hooks/'
 ```
 
@@ -58,23 +54,23 @@ Now, when in a project directory, `emogitify` will add the git-emojis' hooks.
 ### Integrate to your projects
 Unfortunately, hooks aren't part of a project and therefore, they cannot be commited with the project's files. Nevertheless, you can include the one-liner introduced above into your project's init script. For instance, with JavaScript's npm package manager you could do it like so:
 
-```
+```json
 {
   "name": "project-name",
   "version": "1.0.0",
   "description": "The next big thing",
   "scripts": {
-    "prepare": "test -d .git && cd .git/hooks/ && curl -O https://raw.githubusercontent.com/Buzut/git-emojis-hook/master/commit-msg && curl -O https://raw.githubusercontent.com/Buzut/git-emojis-hook/master/prepare-commit-msg && chmod +x *"
+    "prepare": "test -d .git && cd .git/hooks/ && curl -O https://raw.githubusercontent.com/AmirHosseinKarimi/git-emojis-hook/master/commit-msg && curl -O https://raw.githubusercontent.com/AmirHosseinKarimi/git-emojis-hook/master/prepare-commit-msg && chmod +x *"
   },
-  "dependencies": {…},
-  "devDependencies": {…}
+  "dependencies": { . . . },
+  "devDependencies": { . . . }
 }
 ```
 
 `prepare` will then trigger on `npm install` and if there is a `.git` directory and the hooks will be installed automatically.
 
 ## Based on Angular's commit message guidelines
-Angular enforces succint and yet very clear guidelines for their commit messages. Let's have a look at the rules. The following is directly copied from [their repo](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines).
+Angular enforces succinct and yet very clear guidelines for their commit messages. Let's have a look at the rules. The following is directly copied from [their repo](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-guidelines).
 
 We have very precise rules over how our git commit messages can be formatted. This leads to more readable messages that are easy to follow when looking through the project history. But also, we use the git commit messages to generate the Angular change log.
 
