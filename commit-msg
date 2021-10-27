@@ -1,17 +1,27 @@
-#!/bin/sh
+#!/bin/bash
 
 msg=`cat $1`
 
-msg=`echo "$msg" | sed 's/:tada:/🎉/'`
-msg=`echo "$msg" | sed 's/:revert:/⏳/'`
-msg=`echo "$msg" | sed 's/:build:/📦/'`
-msg=`echo "$msg" | sed 's/:ci:/🤖/'`
-msg=`echo "$msg" | sed 's/:docs:/📖/'`
-msg=`echo "$msg" | sed 's/:feat:/🌟/'`
-msg=`echo "$msg" | sed 's/:fix:/🚑/'`
-msg=`echo "$msg" | sed 's/:perf:/⚡/'`
-msg=`echo "$msg" | sed 's/:refactor:/🚧/'`
-msg=`echo "$msg" | sed 's/:style:/💄/'`
-msg=`echo "$msg" | sed 's/:test:/✅/'`
+if [[ $msg = feat* ]]; then
+  msg="🌟${msg}"
+elif [[ $msg = fix* ]]; then
+  msg="🛠${msg}"
+elif [[ $msg = build* ]]; then
+  msg="📦${msg}"
+elif [[ $msg = perf* ]]; then
+  msg="⚡${msg}"
+elif [[ $msg = refactor* ]]; then
+  msg="🚧${msg}"
+elif [[ $msg = style* ]]; then
+  msg="💄${msg}"
+elif [[ $msg = docs* ]]; then
+  msg="📖${msg}"
+elif [[ $msg = test* ]]; then
+  msg="✅${msg}"
+elif [[ $msg = ci* ]]; then
+  msg="🤖${msg}"
+elif [[ $msg = revert* ]]; then
+  msg="⏳${msg}"
+fi
 
 echo "$msg" > $1
