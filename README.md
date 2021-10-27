@@ -5,7 +5,7 @@ A simple git hook to provide strong guidelines for commit message with emojis.
 The commit message rules are the ones from Angular. I just augmented them by adding related emojis. So they should look like this:
 
 ```
-🛠fix(authentication): remove buggy function that allowed to login w/o password
+🛠 fix(authentication): remove buggy function that allowed to login w/o password
 ```
 
 __Emojis are actual unicode emojis and not markdown emojis like `:fire:`. So it will work virtually everywhere as long as unicode is supported.__
