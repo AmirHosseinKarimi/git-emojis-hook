@@ -14,17 +14,19 @@ There are two hooks, one that makes the actual commit message modification and a
 
 ## Syntax
 Here are the types, their respective codes and the corresponding emojis:
-* __feat__: &nbsp; 🌟
-* __fix__: &nbsp; 🛠
-* __build__: &nbsp; 📦
-* __perf__: &nbsp; ⚡
-* __refactor__: &nbsp; 🚧
-* __style__: &nbsp; 💄
-* __docs__: &nbsp; 📖
-* __test__: &nbsp; ✅
-* __ci__: &nbsp; 🤖
-* __revert__: &nbsp; ⏳
 
+|   Commit type              | Emoji                                         |
+|:---------------------------|:----------------------------------------------|
+| feat                       | 🌟                                            |
+| fix                        | 🛠                                           |
+| build                      | 📦                                            |
+| perf                       | ⚡                                            |
+| refactor                   | 🚧                                            |
+| style                      | 💄                                            |
+| docs                       | 📖                                            |
+| test                       | ✅                                            |
+| ci                         | 🤖                                            |
+| revert                     | ⏳                                            |
 
 ## How to use
 For each project, add the two files in in the `.git/hooks` directory.
